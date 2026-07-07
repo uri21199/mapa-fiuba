@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" id="planta-baja">
+  <title>Planta Baja — FIUBA Paseo Colón</title>
+  <defs>
+    <style>
+      .lbl { font:600 11px system-ui,sans-serif; fill:#333; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .lbl-sm { font:500 9px system-ui,sans-serif; fill:#555; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .lbl-lg { font:700 13px system-ui,sans-serif; fill:#333; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .espacio { cursor:pointer; }
+      .espacio:hover rect { filter:brightness(.92); }
+      .estrella { fill:#FFD700; stroke:#E07B00; stroke-width:1.5; transform-box:fill-box; transform-origin:center; animation:pulso-estrella 2s ease-in-out infinite; pointer-events:none; }
+      @keyframes pulso-estrella {
+        0%,100% { transform:scale(1);    filter:drop-shadow(0 0 4px rgba(255,215,0,.5)); }
+        50%     { transform:scale(1.2);  filter:drop-shadow(0 0 12px rgba(255,165,0,.9)); }
+      }
+      .estrella-label { font:700 9px system-ui,sans-serif; fill:#7A4100; text-anchor:middle; dominant-baseline:hanging; pointer-events:none; }
+    </style>
+  </defs>
+
+  <!-- Fondo exterior -->
+  <rect width="1000" height="780" fill="#C8C4BF"/>
+
+  <!-- Cuerpo del edificio -->
+  <rect x="40" y="30" width="920" height="680" rx="2" fill="#DEDBD7" stroke="#888" stroke-width="5"/>
+
+  <!-- Extensiones Sur (Vice Decano y Admin) -->
+  <rect x="40"  y="680" width="210" height="90" fill="#DEDBD7" stroke="#888" stroke-width="3"/>
+  <rect x="255" y="680" width="490" height="90" fill="#DEDBD7" stroke="#888" stroke-width="3"/>
+  <rect x="750" y="680" width="210" height="90" fill="#DEDBD7" stroke="#888" stroke-width="3"/>
+
+  <!-- Corredor/patio interior -->
+  <rect x="265" y="155" width="470" height="465" fill="#E4E2DE"/>
+
+  <!-- Core ascensores -->
+  <g class="elevadores">
+    <rect x="420" y="285" width="160" height="195" rx="2" fill="#D0CCC8" stroke="#AAA" stroke-width="1.5"/>
+    <text x="500" y="383" class="lbl-sm" fill="#888">ASCENSORES</text>
+  </g>
+
+  <!-- ══════════════════════════════════════
+       FRANJA NORTE (Azopardo)
+  ══════════════════════════════════════ -->
+
+  <!-- CEI + Sala PC -->
+  <g id="sala-pc-pb" class="espacio tipo-otro">
+    <rect x="42" y="32" width="115" height="121" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="100" y="82" class="lbl-sm">Sala de PC</text>
+  </g>
+  <g id="cei" class="espacio tipo-otro">
+    <rect x="159" y="32" width="104" height="121" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="211" y="88" class="lbl-sm">CEI</text>
+  </g>
+
+  <!-- Salón Polideportivo (grande, norte-centro-este) -->
+  <g id="salon-polideportivo" class="espacio tipo-otro">
+    <rect x="265" y="32" width="470" height="121" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="2"/>
+    <text x="500" y="93" class="lbl-lg">SALÓN POLIDEPORTIVO</text>
+  </g>
+
+  <!-- Duchas + Dir Personal -->
+  <g id="duchas" class="espacio tipo-bano">
+    <rect x="737" y="32" width="110" height="121" rx="3" fill="#EEF9FB" stroke="#BCE4E8" stroke-width="1.5"/>
+    <text x="792" y="82" class="lbl-sm">Duchas</text>
+  </g>
+  <g id="dir-personal" class="espacio tipo-tramites">
+    <rect x="849" y="32" width="109" height="121" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="904" y="82" class="lbl-sm">Direcc.</text>
+    <text x="904" y="98" class="lbl-sm">Personal</text>
+  </g>
+
+  <!-- ══════════════════════════════════════
+       ALA OESTE (Independencia)
+  ══════════════════════════════════════ -->
+
+  <!-- Sec. de Consejo -->
+  <g id="sec-posgrado-pb" class="espacio tipo-tramites">
+    <rect x="42" y="155" width="221" height="115" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="153" y="205" class="lbl-sm">Sec. de Consejo /</text>
+    <text x="153" y="221" class="lbl-sm">Posgrado</text>
+  </g>
+
+  <!-- Oficina Decano -->
+  <g id="decano" class="espacio tipo-tramites">
+    <rect x="42" y="272" width="221" height="120" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="153" y="327" class="lbl-sm">Oficina del</text>
+    <text x="153" y="343" class="lbl-sm">Decano</text>
+  </g>
+
+  <!-- Baño Damas PB -->
+  <g id="bano-damas-pb" class="espacio tipo-bano">
+    <rect x="42" y="394" width="221" height="100" rx="3" fill="#EEF9FB" stroke="#BCE4E8" stroke-width="1.5"/>
+    <text x="153" y="444" class="lbl-sm">Baño ♀</text>
+  </g>
+
+  <!-- Salon de Actos -->
+  <g id="salon-actos" class="espacio tipo-otro">
+    <rect x="42" y="496" width="221" height="182" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="2"/>
+    <text x="153" y="582" class="lbl">Salón</text>
+    <text x="153" y="598" class="lbl">de Actos</text>
+  </g>
+
+  <!-- ══════════════════════════════════════
+       ZONA INTERIOR NOROESTE
+  ══════════════════════════════════════ -->
+
+  <!-- Sec. de Posgrado -->
+  <g class="tipo-tramites">
+    <rect x="267" y="157" width="151" height="126" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="343" y="210" class="lbl-sm">Sec. Privada /</text>
+    <text x="343" y="226" class="lbl-sm">Reuniones</text>
+  </g>
+
+  <!-- EUDEBA / SEUBA -->
+  <g id="eudeba-seuba" class="espacio tipo-otro">
+    <rect x="267" y="285" width="151" height="100" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="343" y="325" class="lbl-sm">EUDEBA /</text>
+    <text x="343" y="341" class="lbl-sm">SEUBA</text>
+  </g>
+
+  <!-- Consejería -->
+  <g id="consejeria" class="espacio tipo-tramites">
+    <rect x="267" y="387" width="151" height="97" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="343" y="425" class="lbl-sm">Consejería</text>
+    <text x="343" y="441" class="lbl-sm">Estudiantil</text>
+  </g>
+
+  <!-- Interior SW -->
+  <g class="tipo-otro">
+    <rect x="267" y="486" width="151" height="133" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="343" y="553" class="lbl-sm">Servicios</text>
+    <text x="343" y="569" class="lbl-sm">Generales</text>
+  </g>
+
+  <!-- ══════════════════════════════════════
+       ZONA INTERIOR NORESTE
+  ══════════════════════════════════════ -->
+
+  <!-- Dpto Deporte + Baño Caballeros -->
+  <g id="dpto-deporte" class="espacio tipo-tramites">
+    <rect x="582" y="157" width="151" height="62" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="658" y="188" class="lbl-sm">DPTO Deporte</text>
+  </g>
+  <g id="bano-caballeros-pb" class="espacio tipo-bano">
+    <rect x="582" y="221" width="151" height="62" rx="3" fill="#EEF9FB" stroke="#BCE4E8" stroke-width="1.5"/>
+    <text x="658" y="252" class="lbl-sm">Baño ♂</text>
+  </g>
+  <g id="fotocopiadora" class="espacio tipo-otro">
+    <rect x="582" y="285" width="151" height="100" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="658" y="335" class="lbl-sm">Fotocopiadora</text>
+  </g>
+
+  <!-- Mesa de Entradas -->
+  <g id="mesa-entradas" class="espacio tipo-tramites">
+    <rect x="582" y="387" width="151" height="97" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="2"/>
+    <text x="658" y="425" class="lbl-sm">Mesa de</text>
+    <text x="658" y="441" class="lbl-sm">Entradas</text>
+  </g>
+
+  <!-- Admisión -->
+  <g id="admision" class="espacio tipo-tramites">
+    <rect x="582" y="486" width="151" height="133" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="658" y="543" class="lbl-sm">Admisión /</text>
+    <text x="658" y="559" class="lbl-sm">Dep. Alumnos</text>
+  </g>
+
+  <!-- ══════════════════════════════════════
+       ALA ESTE (Estados Unidos)
+  ══════════════════════════════════════ -->
+
+  <!-- Servicios Computación + Oficina ADM -->
+  <g class="tipo-tramites">
+    <rect x="737" y="155" width="221" height="115" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="848" y="205" class="lbl-sm">Oficina ADM /</text>
+    <text x="848" y="221" class="lbl-sm">Serv. Computación</text>
+  </g>
+
+  <!-- Comunicación Universitaria -->
+  <g id="comunic-univ" class="espacio tipo-tramites">
+    <rect x="737" y="272" width="221" height="120" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="848" y="320" class="lbl-sm">Comunicación</text>
+    <text x="848" y="336" class="lbl-sm">Universitaria</text>
+  </g>
+
+  <!-- Dirección Académica -->
+  <g id="direcc-academica" class="espacio tipo-tramites">
+    <rect x="737" y="394" width="221" height="100" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="2"/>
+    <text x="848" y="434" class="lbl-sm">Dirección Gral.</text>
+    <text x="848" y="450" class="lbl-sm">Académica</text>
+  </g>
+
+  <!-- Sec. Académica -->
+  <g id="sec-academica" class="espacio tipo-tramites">
+    <rect x="737" y="496" width="221" height="100" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="2"/>
+    <text x="848" y="536" class="lbl-sm">Secretaría</text>
+    <text x="848" y="552" class="lbl-sm">Académica</text>
+  </g>
+
+  <!-- ══════════════════════════════════════
+       FRANJA SUR (Paseo Colón) + extensiones
+  ══════════════════════════════════════ -->
+
+  <!-- Vice Decanato (extensión SO) -->
+  <g id="vice-decano" class="espacio tipo-tramites">
+    <rect x="42" y="682" width="206" height="86" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="145" y="725" class="lbl-sm">Vice Decanato</text>
+  </g>
+
+  <!-- Sec. Administrativa (centro-sur) -->
+  <g id="sec-administrativa" class="espacio tipo-tramites">
+    <rect x="257" y="682" width="186" height="86" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="350" y="720" class="lbl-sm">Sec.</text>
+    <text x="350" y="736" class="lbl-sm">Administrativa</text>
+  </g>
+
+  <!-- Bicicletero + Entrada -->
+  <g id="entrada" class="espacio tipo-otro">
+    <rect x="445" y="682" width="110" height="86" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="2"/>
+    <text x="500" y="718" class="lbl-sm">ENTRADA /</text>
+    <text x="500" y="734" class="lbl-sm">SALIDA</text>
+  </g>
+  <g id="bicicletero" class="espacio tipo-otro">
+    <rect x="557" y="682" width="90" height="86" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="602" y="725" class="lbl-sm">Bici</text>
+  </g>
+
+  <!-- Tesorería -->
+  <g id="tesoreria" class="espacio tipo-tramites">
+    <rect x="649" y="682" width="100" height="86" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="699" y="718" class="lbl-sm">Tesorería</text>
+  </g>
+
+  <!-- Sec. Académica (ext SE) -->
+  <g id="dir-contable" class="espacio tipo-tramites">
+    <rect x="752" y="682" width="206" height="86" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="855" y="718" class="lbl-sm">Dirección</text>
+    <text x="855" y="734" class="lbl-sm">Contable</text>
+  </g>
+
+  <!-- ══════════════════════════════════════
+       ESTRELLA ⭐ — Mesa de Proyecto Ingeniería
+       Ubicación: pasando el 3er ascensor izq.,
+       antes del pasillo. x≈395, y≈390
+  ══════════════════════════════════════ -->
+  <g id="mesa-proyecto-ing" class="espacio tipo-especial" style="cursor:pointer">
+    <!-- Fondo pequeño -->
+    <rect x="360" y="362" width="58" height="58" rx="6" fill="#FFF8E1" stroke="#F59E0B" stroke-width="2"/>
+    <!-- Estrella SVG (5 puntas, R=16 r=7) -->
+    <polygon class="estrella"
+      points="389,367 392,378 404,378 394,385 398,396 389,389 380,396 384,385 374,378 386,378"
+      transform="translate(0,0)"/>
+    <text class="estrella-label" x="389" y="418">Mesa Proy.</text>
+  </g>
+
+  <!-- Labels de orientación -->
+  <text x="500" y="19" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle">Azopardo ↑</text>
+  <text x="500" y="775" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle">↓ Av. Paseo Colón</text>
+  <text x="20"  y="390" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle" transform="rotate(-90,20,390)">Av. Independencia</text>
+  <text x="983" y="390" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle" transform="rotate(90,983,390)">Estados Unidos</text>
+</svg>

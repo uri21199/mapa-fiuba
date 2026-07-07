@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" id="piso-3">
+  <title>3er Piso — FIUBA Paseo Colón</title>
+  <defs>
+    <style>
+      .lbl { font:600 11px system-ui,sans-serif; fill:#333; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .lbl-sm { font:500 9px system-ui,sans-serif; fill:#555; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .lbl-lg { font:700 14px system-ui,sans-serif; fill:#333; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .espacio { cursor:pointer; }
+      .espacio:hover rect { filter:brightness(.92); }
+    </style>
+  </defs>
+
+  <rect width="1000" height="780" fill="#C8C4BF"/>
+  <rect x="40" y="30" width="920" height="720" rx="2" fill="#DEDBD7" stroke="#888" stroke-width="5"/>
+  <rect x="265" y="155" width="470" height="470" fill="#E4E2DE"/>
+
+  <g class="elevadores">
+    <rect x="420" y="285" width="160" height="200" rx="2" fill="#D0CCC8" stroke="#AAA" stroke-width="1.5"/>
+    <text x="500" y="390" class="lbl-sm" fill="#888">ASCENSORES</text>
+  </g>
+
+  <!-- ── NORTE — BIBLIOTECA ── -->
+  <g class="tipo-otro">
+    <rect x="42" y="32" width="120" height="121" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="102" y="82" class="lbl-sm">Publicaciones</text>
+  </g>
+  <g id="biblioteca-3" class="espacio tipo-biblioteca">
+    <rect x="164" y="32" width="373" height="121" rx="3" fill="#FBFBEE" stroke="#E8E4BC" stroke-width="2"/>
+    <text x="351" y="93" class="lbl-lg">BIBLIOTECA</text>
+  </g>
+  <g id="videoteca" class="espacio tipo-biblioteca">
+    <rect x="539" y="32" width="200" height="121" rx="3" fill="#FBFBEE" stroke="#E8E4BC" stroke-width="1.5"/>
+    <text x="639" y="88" class="lbl">Videoteca /</text>
+    <text x="639" y="104" class="lbl">Hall</text>
+  </g>
+  <g class="tipo-otro">
+    <rect x="741" y="32" width="217" height="121" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="850" y="82" class="lbl-sm">Procesos</text>
+    <text x="850" y="98" class="lbl-sm">Técnicos</text>
+  </g>
+
+  <!-- ── OESTE ── -->
+  <g id="sala-parlante" class="espacio tipo-biblioteca">
+    <rect x="42" y="155" width="221" height="200" rx="3" fill="#FBFBEE" stroke="#E8E4BC" stroke-width="2"/>
+    <text x="153" y="245" class="lbl">Sala</text>
+    <text x="153" y="261" class="lbl">Parlante</text>
+  </g>
+  <g id="aula-303" class="espacio tipo-aula">
+    <rect x="42" y="357" width="221" height="130" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="153" y="422" class="lbl">Aula 303</text>
+  </g>
+  <g id="aula-305" class="espacio tipo-aula">
+    <rect x="42" y="489" width="221" height="130" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="153" y="554" class="lbl">Aula 305</text>
+  </g>
+  <g id="publicaciones" class="espacio tipo-otro">
+    <rect x="42" y="621" width="221" height="125" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="153" y="684" class="lbl-sm">Publicaciones /</text>
+    <text x="153" y="700" class="lbl-sm">Graduados</text>
+  </g>
+
+  <!-- ── INTERIOR NO ── -->
+  <g id="aula-301" class="espacio tipo-aula">
+    <rect x="267" y="157" width="151" height="126" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="343" y="220" class="lbl">Aula 301</text>
+  </g>
+  <g id="bano-damas-p3" class="espacio tipo-bano">
+    <rect x="267" y="285" width="151" height="60" rx="3" fill="#EEF9FB" stroke="#BCE4E8" stroke-width="1.5"/>
+    <text x="343" y="315" class="lbl-sm">Baño ♀</text>
+  </g>
+  <g class="tipo-otro">
+    <rect x="267" y="347" width="151" height="110" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="343" y="392" class="lbl-sm">Investigación /</text>
+    <text x="343" y="408" class="lbl-sm">Oficina</text>
+  </g>
+  <g class="tipo-otro">
+    <rect x="267" y="459" width="151" height="164" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="343" y="531" class="lbl-sm">Sala C /</text>
+    <text x="343" y="547" class="lbl-sm">Boxes</text>
+  </g>
+
+  <!-- ── CENTRO — Sala Silenciosa + Recepción ── -->
+  <g id="sala-silenciosa" class="espacio tipo-biblioteca">
+    <rect x="420" y="157" width="160" height="126" rx="3" fill="#FBFBEE" stroke="#E8E4BC" stroke-width="2"/>
+    <text x="500" y="210" class="lbl-sm">Sala</text>
+    <text x="500" y="226" class="lbl-sm">Silenciosa</text>
+  </g>
+  <g id="recep-biblioteca" class="espacio tipo-biblioteca">
+    <rect x="420" y="487" width="160" height="138" rx="3" fill="#FBFBEE" stroke="#E8E4BC" stroke-width="1.5"/>
+    <text x="500" y="546" class="lbl-sm">Recepción</text>
+    <text x="500" y="562" class="lbl-sm">Biblioteca</text>
+  </g>
+
+  <!-- ── INTERIOR NE ── -->
+  <g id="bano-hombres-p3" class="espacio tipo-bano">
+    <rect x="582" y="157" width="151" height="70" rx="3" fill="#EEF9FB" stroke="#BCE4E8" stroke-width="1.5"/>
+    <text x="658" y="192" class="lbl-sm">Baño ♂</text>
+  </g>
+  <g id="dir-biblioteca" class="espacio tipo-tramites">
+    <rect x="582" y="229" width="151" height="90" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="658" y="264" class="lbl-sm">Dir. de</text>
+    <text x="658" y="280" class="lbl-sm">Biblioteca</text>
+  </g>
+  <g id="serv-hig-seg" class="espacio tipo-tramites">
+    <rect x="582" y="321" width="151" height="90" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="658" y="356" class="lbl-sm">Serv. Hig.</text>
+    <text x="658" y="372" class="lbl-sm">y Seguridad</text>
+  </g>
+  <g id="sala-reuniones-p3" class="espacio tipo-otro">
+    <rect x="582" y="413" width="151" height="80" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="658" y="448" class="lbl-sm">Sala de</text>
+    <text x="658" y="464" class="lbl-sm">Reuniones</text>
+  </g>
+  <g class="tipo-otro">
+    <rect x="582" y="495" width="151" height="130" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="658" y="555" class="lbl-sm">Dep. /</text>
+    <text x="658" y="571" class="lbl-sm">Jurídica</text>
+  </g>
+
+  <!-- ── ESTE ── -->
+  <g id="procesos-tecnicos" class="espacio tipo-otro">
+    <rect x="737" y="155" width="221" height="160" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="848" y="228" class="lbl-sm">Procesos</text>
+    <text x="848" y="244" class="lbl-sm">Técnicos</text>
+  </g>
+  <g id="aula-302" class="espacio tipo-aula">
+    <rect x="737" y="317" width="221" height="160" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="2"/>
+    <text x="848" y="397" class="lbl">Aula 302</text>
+  </g>
+  <g id="sec-empresarial" class="espacio tipo-tramites">
+    <rect x="737" y="479" width="221" height="145" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="848" y="542" class="lbl-sm">Sec.</text>
+    <text x="848" y="558" class="lbl-sm">Empresarial</text>
+  </g>
+  <g class="tipo-otro">
+    <rect x="737" y="626" width="221" height="120" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="848" y="686" class="lbl-sm">Dir. Empresarial /</text>
+    <text x="848" y="702" class="lbl-sm">Oficina</text>
+  </g>
+
+  <!-- ── SUR ── -->
+  <g id="aula-313" class="espacio tipo-aula">
+    <rect x="42" y="750" width="221" height="26" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="153" y="763" class="lbl-sm">Aula 313</text>
+  </g>
+  <g id="aula-319" class="espacio tipo-aula">
+    <rect x="265" y="628" width="153" height="118" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="342" y="688" class="lbl">Aula 319</text>
+  </g>
+  <g id="aula-310" class="espacio tipo-aula">
+    <rect x="582" y="628" width="153" height="118" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="659" y="688" class="lbl">Aula 310</text>
+  </g>
+  <g id="aula-304" class="espacio tipo-aula">
+    <rect x="737" y="748" width="221" height="28" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="848" y="762" class="lbl-sm">Aula 304</text>
+  </g>
+  <g id="graduados-telecom" class="espacio tipo-otro">
+    <rect x="420" y="628" width="160" height="118" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="500" y="678" class="lbl-sm">Graduados</text>
+    <text x="500" y="694" class="lbl-sm">Telecom</text>
+  </g>
+
+  <text x="500" y="19" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle">Azopardo ↑</text>
+  <text x="500" y="775" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle">↓ Av. Paseo Colón</text>
+  <text x="20"  y="390" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle" transform="rotate(-90,20,390)">Av. Independencia</text>
+  <text x="983" y="390" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle" transform="rotate(90,983,390)">Estados Unidos</text>
+</svg>

@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" id="piso-4">
+  <title>4to Piso — FIUBA Paseo Colón</title>
+  <defs>
+    <style>
+      .lbl { font:600 11px system-ui,sans-serif; fill:#333; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .lbl-sm { font:500 9px system-ui,sans-serif; fill:#555; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .lbl-lg { font:700 13px system-ui,sans-serif; fill:#333; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .espacio { cursor:pointer; }
+      .espacio:hover rect { filter:brightness(.92); }
+    </style>
+  </defs>
+
+  <rect width="1000" height="780" fill="#C8C4BF"/>
+  <rect x="40" y="30" width="920" height="720" rx="2" fill="#DEDBD7" stroke="#888" stroke-width="5"/>
+  <rect x="265" y="155" width="470" height="470" fill="#E4E2DE"/>
+
+  <g class="elevadores">
+    <rect x="420" y="285" width="160" height="200" rx="2" fill="#D0CCC8" stroke="#AAA" stroke-width="1.5"/>
+    <text x="500" y="390" class="lbl-sm" fill="#888">ASCENSORES</text>
+  </g>
+
+  <!-- ── NORTE ── -->
+  <g class="tipo-otro">
+    <rect x="42" y="32" width="120" height="121" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="102" y="82" class="lbl-sm">Hall</text>
+  </g>
+  <g id="lab-medios-porosos" class="espacio tipo-laboratorio">
+    <rect x="164" y="32" width="200" height="121" rx="3" fill="#F2EEFB" stroke="#C8BCE8" stroke-width="1.5"/>
+    <text x="264" y="82" class="lbl-sm">Lab Medios</text>
+    <text x="264" y="98" class="lbl-sm">Porosos</text>
+  </g>
+  <!-- Depósito General (área central norte - inner) -->
+  <g class="tipo-otro">
+    <rect x="366" y="32" width="268" height="121" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="500" y="82" class="lbl-sm">Depósito /</text>
+    <text x="500" y="98" class="lbl-sm">Sala Lateral Superior</text>
+  </g>
+  <g class="tipo-otro">
+    <rect x="636" y="32" width="105" height="121" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="689" y="82" class="lbl-sm">Sector</text>
+    <text x="689" y="98" class="lbl-sm">Investigación</text>
+  </g>
+  <g class="tipo-otro">
+    <rect x="743" y="32" width="215" height="121" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="851" y="82" class="lbl-sm">Depósito /</text>
+    <text x="851" y="98" class="lbl-sm">Laboratorios</text>
+  </g>
+
+  <!-- ── OESTE ── -->
+  <g id="aula-405" class="espacio tipo-aula">
+    <rect x="42" y="155" width="221" height="120" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="153" y="215" class="lbl">Aula 405</text>
+  </g>
+  <g id="bederia" class="espacio tipo-tramites">
+    <rect x="42" y="277" width="221" height="110" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="3"/>
+    <text x="153" y="327" class="lbl-lg" fill="#C41E3A">Bedería</text>
+  </g>
+  <g id="dpto-sanitaria" class="espacio tipo-tramites">
+    <rect x="42" y="389" width="221" height="110" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="153" y="434" class="lbl-sm">DPTO Ing.</text>
+    <text x="153" y="450" class="lbl-sm">Sanitaria</text>
+  </g>
+  <g id="inst-biomedica-p4" class="espacio tipo-laboratorio">
+    <rect x="42" y="501" width="221" height="120" rx="3" fill="#F2EEFB" stroke="#C8BCE8" stroke-width="1.5"/>
+    <text x="153" y="551" class="lbl-sm">Inst. Ing.</text>
+    <text x="153" y="567" class="lbl-sm">Biomédica</text>
+  </g>
+  <g class="tipo-laboratorio">
+    <rect x="42" y="623" width="221" height="123" rx="3" fill="#F2EEFB" stroke="#C8BCE8" stroke-width="1.5"/>
+    <text x="153" y="685" class="lbl-sm">INST ING</text>
+    <text x="153" y="701" class="lbl-sm">BIOMED / Labs</text>
+  </g>
+
+  <!-- ── INTERIOR NO ── -->
+  <g id="aula-403" class="espacio tipo-aula">
+    <rect x="267" y="157" width="151" height="126" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="2"/>
+    <text x="343" y="220" class="lbl">Aula 403</text>
+  </g>
+  <g id="aula-401" class="espacio tipo-aula">
+    <rect x="267" y="285" width="70" height="100" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="302" y="335" class="lbl-sm">401</text>
+  </g>
+  <g id="aula-407" class="espacio tipo-aula">
+    <rect x="339" y="285" width="79" height="100" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="379" y="335" class="lbl-sm">407</text>
+  </g>
+  <g id="bano-damas-p4" class="espacio tipo-bano">
+    <rect x="267" y="387" width="151" height="60" rx="3" fill="#EEF9FB" stroke="#BCE4E8" stroke-width="1.5"/>
+    <text x="343" y="417" class="lbl-sm">Baño ♀</text>
+  </g>
+  <g class="tipo-otro">
+    <rect x="267" y="449" width="151" height="174" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="343" y="526" class="lbl-sm">Depósito /</text>
+    <text x="343" y="542" class="lbl-sm">Boxes</text>
+  </g>
+
+  <!-- ── CENTRO — Aula 417 + 422 ── -->
+  <g id="aula-417" class="espacio tipo-aula">
+    <rect x="420" y="157" width="77" height="126" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="459" y="220" class="lbl-sm">417</text>
+  </g>
+  <g id="sec-informat-p4" class="espacio tipo-tramites">
+    <rect x="499" y="157" width="81" height="126" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="540" y="210" class="lbl-sm">Sec.</text>
+    <text x="540" y="226" class="lbl-sm">Inform.</text>
+  </g>
+  <g id="aula-422" class="espacio tipo-aula">
+    <rect x="420" y="487" width="160" height="138" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="2"/>
+    <text x="500" y="556" class="lbl">Aula 422</text>
+  </g>
+
+  <!-- ── INTERIOR NE ── -->
+  <g id="aula-402" class="espacio tipo-aula">
+    <rect x="582" y="157" width="151" height="126" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="2"/>
+    <text x="658" y="220" class="lbl">Aula 402</text>
+  </g>
+  <g id="aula-430" class="espacio tipo-aula">
+    <rect x="582" y="285" width="80" height="100" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="622" y="335" class="lbl-sm">430</text>
+  </g>
+  <g id="bano-hombres-p4" class="espacio tipo-bano">
+    <rect x="664" y="285" width="67" height="100" rx="3" fill="#EEF9FB" stroke="#BCE4E8" stroke-width="1.5"/>
+    <text x="698" y="335" class="lbl-sm">Baño ♂</text>
+  </g>
+  <g id="comunic-intercambios" class="espacio tipo-tramites">
+    <rect x="582" y="387" width="151" height="100" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="658" y="427" class="lbl-sm">Comunic.</text>
+    <text x="658" y="443" class="lbl-sm">Intercambios</text>
+  </g>
+  <g class="tipo-otro">
+    <rect x="582" y="489" width="151" height="136" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="658" y="557" class="lbl-sm">Depósito /</text>
+    <text x="658" y="573" class="lbl-sm">Boxes</text>
+  </g>
+
+  <!-- ── ESTE ── -->
+  <g id="dpto-compu-p4" class="espacio tipo-tramites">
+    <rect x="737" y="155" width="221" height="130" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="848" y="205" class="lbl-sm">DPTO</text>
+    <text x="848" y="221" class="lbl-sm">Computación</text>
+  </g>
+  <g id="sala-mainframe" class="espacio tipo-otro">
+    <rect x="737" y="287" width="221" height="100" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="848" y="332" class="lbl-sm">Sala Main Frame</text>
+  </g>
+  <g id="sala-pc-p4" class="espacio tipo-otro">
+    <rect x="737" y="389" width="221" height="100" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="848" y="439" class="lbl-sm">Sala PC</text>
+  </g>
+  <g class="tipo-otro">
+    <rect x="737" y="491" width="221" height="120" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="848" y="551" class="lbl-sm">Servicio</text>
+    <text x="848" y="567" class="lbl-sm">Computación</text>
+  </g>
+  <g id="dpto-naval" class="espacio tipo-tramites">
+    <rect x="737" y="613" width="221" height="133" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="848" y="680" class="lbl-sm">DPTO Naval /</text>
+    <text x="848" y="696" class="lbl-sm">Oficina</text>
+  </g>
+
+  <!-- ── SUR ── -->
+  <g id="aula-411" class="espacio tipo-aula">
+    <rect x="42" y="750" width="120" height="26" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="102" y="763" class="lbl-sm">Aula 411</text>
+  </g>
+  <g id="aula-400" class="espacio tipo-aula">
+    <rect x="265" y="628" width="153" height="118" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="2"/>
+    <text x="342" y="688" class="lbl-lg">Aula 400</text>
+  </g>
+  <g id="aula-408" class="espacio tipo-aula">
+    <rect x="420" y="628" width="160" height="118" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="500" y="688" class="lbl">Aula 408</text>
+  </g>
+  <g id="aula-416" class="espacio tipo-aula">
+    <rect x="582" y="628" width="78" height="118" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="621" y="688" class="lbl-sm">416</text>
+  </g>
+  <g id="aula-412" class="espacio tipo-aula">
+    <rect x="662" y="628" width="73" height="118" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="699" y="688" class="lbl-sm">412</text>
+  </g>
+  <g id="aula-414" class="espacio tipo-aula">
+    <rect x="737" y="750" width="110" height="26" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="792" y="763" class="lbl-sm">Aula 414</text>
+  </g>
+
+  <text x="500" y="19" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle">Azopardo ↑</text>
+  <text x="500" y="775" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle">↓ Av. Paseo Colón</text>
+  <text x="20"  y="390" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle" transform="rotate(-90,20,390)">Av. Independencia</text>
+  <text x="983" y="390" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle" transform="rotate(90,983,390)">Estados Unidos</text>
+</svg>

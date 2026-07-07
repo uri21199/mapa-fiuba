@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" id="piso-1">
+  <title>1er Piso — FIUBA Paseo Colón</title>
+  <defs>
+    <style>
+      .lbl { font:600 11px system-ui,sans-serif; fill:#333; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .lbl-sm { font:500 9px system-ui,sans-serif; fill:#555; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .lbl-lg { font:700 13px system-ui,sans-serif; fill:#333; text-anchor:middle; dominant-baseline:central; pointer-events:none; }
+      .espacio { cursor:pointer; }
+      .espacio:hover rect { filter:brightness(.92); }
+    </style>
+  </defs>
+
+  <rect width="1000" height="780" fill="#C8C4BF"/>
+  <rect x="40" y="30" width="920" height="720" rx="2" fill="#DEDBD7" stroke="#888" stroke-width="5"/>
+
+  <!-- Corredor interior -->
+  <rect x="265" y="155" width="470" height="470" fill="#E4E2DE"/>
+
+  <!-- Ascensores + Espacio Estudio -->
+  <g class="elevadores">
+    <rect x="420" y="285" width="160" height="200" rx="2" fill="#D0CCC8" stroke="#AAA" stroke-width="1.5"/>
+    <text x="500" y="390" class="lbl-sm" fill="#888">ASCENSORES</text>
+  </g>
+
+  <!-- ── NORTE ── -->
+  <!-- Hall + Lab Sólidos (Independencia lado) -->
+  <g id="lab-solidos-p1" class="tipo-laboratorio">
+    <rect x="42" y="32" width="221" height="121" rx="3" fill="#F2EEFB" stroke="#C8BCE8" stroke-width="1.5"/>
+    <text x="153" y="88" class="lbl-sm">Hall /</text>
+    <text x="153" y="104" class="lbl-sm">Lab Sólidos</text>
+  </g>
+
+  <!-- LABCATIF -->
+  <g id="labcatif" class="espacio tipo-laboratorio">
+    <rect x="265" y="32" width="153" height="121" rx="3" fill="#F2EEFB" stroke="#C8BCE8" stroke-width="1.5"/>
+    <text x="342" y="88" class="lbl-sm">LABCATIF</text>
+  </g>
+
+  <!-- LAE -->
+  <g id="lae" class="espacio tipo-laboratorio">
+    <rect x="420" y="32" width="160" height="121" rx="3" fill="#F2EEFB" stroke="#C8BCE8" stroke-width="1.5"/>
+    <text x="500" y="88" class="lbl-sm">LAE</text>
+  </g>
+
+  <!-- SUCOR -->
+  <g id="sucor" class="espacio tipo-otro">
+    <rect x="582" y="32" width="85" height="58" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="625" y="62" class="lbl-sm">S.U.C.O.R.</text>
+  </g>
+
+  <!-- Lab Circuitos -->
+  <g id="lab-circuitos" class="espacio tipo-laboratorio">
+    <rect x="669" y="32" width="150" height="58" rx="3" fill="#F2EEFB" stroke="#C8BCE8" stroke-width="1.5"/>
+    <text x="744" y="62" class="lbl-sm">Lab Circuitos</text>
+  </g>
+
+  <!-- Lab Instrumentos -->
+  <g id="lab-instrumentos" class="espacio tipo-laboratorio">
+    <rect x="582" y="92" width="237" height="61" rx="3" fill="#F2EEFB" stroke="#C8BCE8" stroke-width="1.5"/>
+    <text x="701" y="122" class="lbl-sm">Lab Instrumentos y Mediciones</text>
+  </g>
+
+  <!-- Pañol + Oficinas NE -->
+  <g class="tipo-otro">
+    <rect x="821" y="32" width="137" height="121" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="890" y="82" class="lbl-sm">Pañol /</text>
+    <text x="890" y="98" class="lbl-sm">Oficinas</text>
+  </g>
+
+  <!-- ── OESTE ── -->
+  <!-- Aula 107 -->
+  <g id="aula-107" class="espacio tipo-aula">
+    <rect x="42" y="155" width="221" height="145" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="153" y="228" class="lbl">Aula 107</text>
+  </g>
+
+  <!-- Lab Computación -->
+  <g id="lab-compu-p1" class="espacio tipo-laboratorio">
+    <rect x="42" y="302" width="221" height="140" rx="3" fill="#F2EEFB" stroke="#C8BCE8" stroke-width="1.5"/>
+    <text x="153" y="362" class="lbl-sm">Lab de</text>
+    <text x="153" y="378" class="lbl-sm">Computación</text>
+  </g>
+
+  <!-- DPTO Matemática -->
+  <g id="dpto-matematica" class="espacio tipo-tramites">
+    <rect x="42" y="444" width="221" height="120" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="153" y="494" class="lbl-sm">DPTO</text>
+    <text x="153" y="510" class="lbl-sm">Matemática</text>
+  </g>
+
+  <!-- Sala Profesores / Consulta -->
+  <g class="tipo-otro">
+    <rect x="42" y="566" width="221" height="180" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="153" y="647" class="lbl-sm">Sala Profesores /</text>
+    <text x="153" y="663" class="lbl-sm">Consulta</text>
+  </g>
+
+  <!-- ── INTERIOR NO ── -->
+  <!-- Sec. Extensión + Baño Damas -->
+  <g id="sec-extension" class="espacio tipo-tramites">
+    <rect x="267" y="157" width="151" height="126" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="343" y="210" class="lbl-sm">Sec. Extensión</text>
+    <text x="343" y="226" class="lbl-sm">Universitaria</text>
+  </g>
+  <g id="bano-damas-p1" class="espacio tipo-bano">
+    <rect x="267" y="285" width="151" height="100" rx="3" fill="#EEF9FB" stroke="#BCE4E8" stroke-width="1.5"/>
+    <text x="343" y="335" class="lbl-sm">Baño ♀</text>
+  </g>
+
+  <!-- Aula 105 -->
+  <g id="aula-105" class="espacio tipo-aula">
+    <rect x="267" y="387" width="151" height="110" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="343" y="442" class="lbl">Aula 105</text>
+  </g>
+
+  <!-- Box Investigación -->
+  <g class="tipo-otro">
+    <rect x="267" y="499" width="151" height="125" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="343" y="562" class="lbl-sm">Box de</text>
+    <text x="343" y="578" class="lbl-sm">Investigación</text>
+  </g>
+
+  <!-- ── CENTRO: Aula 103 grande ── -->
+  <g id="aula-103" class="espacio tipo-aula">
+    <rect x="420" y="487" width="160" height="137" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="2"/>
+    <text x="500" y="556" class="lbl-lg">Aula 103</text>
+  </g>
+
+  <!-- Espacio de Estudio (arriba del asc) -->
+  <g id="espacio-estudio" class="espacio tipo-otro">
+    <rect x="420" y="157" width="160" height="126" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="500" y="210" class="lbl-sm">Espacio</text>
+    <text x="500" y="226" class="lbl-sm">de Estudio</text>
+  </g>
+
+  <!-- ── INTERIOR NE ── -->
+  <!-- Baño Hombres -->
+  <g id="bano-hombres-p1" class="espacio tipo-bano">
+    <rect x="582" y="157" width="151" height="70" rx="3" fill="#EEF9FB" stroke="#BCE4E8" stroke-width="1.5"/>
+    <text x="658" y="192" class="lbl-sm">Baño ♂</text>
+  </g>
+
+  <!-- LABI -->
+  <g id="labi" class="espacio tipo-laboratorio">
+    <rect x="582" y="229" width="151" height="80" rx="3" fill="#F2EEFB" stroke="#C8BCE8" stroke-width="1.5"/>
+    <text x="658" y="269" class="lbl">LABI</text>
+  </g>
+
+  <!-- Biblioteca 1er Piso -->
+  <g id="biblioteca-p1" class="espacio tipo-biblioteca">
+    <rect x="582" y="311" width="151" height="90" rx="3" fill="#FBFBEE" stroke="#E8E4BC" stroke-width="1.5"/>
+    <text x="658" y="351" class="lbl-sm">Biblioteca</text>
+    <text x="658" y="367" class="lbl-sm">(1er Piso)</text>
+  </g>
+
+  <!-- Aula L14 -->
+  <g id="aula-l14" class="espacio tipo-aula">
+    <rect x="582" y="403" width="151" height="100" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="658" y="453" class="lbl">Aula L14</text>
+  </g>
+
+  <!-- Zona interior SE -->
+  <g class="tipo-otro">
+    <rect x="582" y="505" width="151" height="119" rx="3" fill="#F5F4F0" stroke="#CCC" stroke-width="1.5"/>
+    <text x="658" y="565" class="lbl-sm">Depósito /</text>
+    <text x="658" y="581" class="lbl-sm">Boxes</text>
+  </g>
+
+  <!-- ── ESTE ── -->
+  <!-- L13 -->
+  <g id="aula-l13" class="espacio tipo-aula">
+    <rect x="737" y="155" width="221" height="90" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="848" y="200" class="lbl">Aula L13</text>
+  </g>
+  <g id="aula-l11" class="espacio tipo-aula">
+    <rect x="737" y="247" width="221" height="90" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="848" y="292" class="lbl">Aula L11</text>
+  </g>
+  <g id="aula-l10" class="espacio tipo-aula">
+    <rect x="737" y="339" width="221" height="90" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="848" y="384" class="lbl">Aula L10</text>
+  </g>
+  <g id="aula-l9" class="espacio tipo-aula">
+    <rect x="737" y="431" width="221" height="80" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="848" y="471" class="lbl">Aula L9</text>
+  </g>
+  <g id="aula-l7" class="espacio tipo-aula">
+    <rect x="737" y="513" width="221" height="80" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="848" y="553" class="lbl">Aula L7</text>
+  </g>
+  <g id="aula-l6" class="espacio tipo-aula">
+    <rect x="737" y="595" width="221" height="75" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="848" y="633" class="lbl">Aula L6</text>
+  </g>
+  <g id="aula-l5" class="espacio tipo-aula">
+    <rect x="737" y="672" width="221" height="74" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="848" y="709" class="lbl">Aula L5</text>
+  </g>
+
+  <!-- ── SUR ── -->
+  <!-- DPTO Electrónica (SO) -->
+  <g id="dpto-electronica" class="espacio tipo-tramites">
+    <rect x="42" y="748" width="221" height="28" rx="3" fill="#FBF5EE" stroke="#E8D4BC" stroke-width="1.5"/>
+    <text x="153" y="762" class="lbl-sm">DPTO Electrónica</text>
+  </g>
+
+  <!-- Aulas L sur -->
+  <g id="aula-l3" class="espacio tipo-aula">
+    <rect x="265" y="628" width="153" height="98" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="342" y="677" class="lbl">Aula L3</text>
+  </g>
+  <g id="aula-l2" class="espacio tipo-aula">
+    <rect x="420" y="628" width="80" height="98" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="460" y="677" class="lbl">L2</text>
+  </g>
+  <g id="aula-l1" class="espacio tipo-aula">
+    <rect x="502" y="628" width="78" height="98" rx="3" fill="#EEF2FB" stroke="#BCC8E8" stroke-width="1.5"/>
+    <text x="541" y="677" class="lbl">L1</text>
+  </g>
+  <g id="lab-acustico" class="espacio tipo-laboratorio">
+    <rect x="582" y="628" width="153" height="98" rx="3" fill="#F2EEFB" stroke="#C8BCE8" stroke-width="1.5"/>
+    <text x="659" y="677" class="lbl-sm">Lab Acústico</text>
+  </g>
+
+  <text x="500" y="19" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle">Azopardo ↑</text>
+  <text x="500" y="775" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle">↓ Av. Paseo Colón</text>
+  <text x="20"  y="390" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle" transform="rotate(-90,20,390)">Av. Independencia</text>
+  <text x="983" y="390" font-family="system-ui,sans-serif" font-size="11" fill="#888" text-anchor="middle" transform="rotate(90,983,390)">Estados Unidos</text>
+</svg>
