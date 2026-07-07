@@ -67,6 +67,18 @@
   </section>
 
   <!-- ══════════════════════════════════════
+       CAPAS DEL MAPA (toggle)
+  ══════════════════════════════════════ -->
+  <section class="layer-controls" id="layer-controls" aria-label="Capas visibles del mapa">
+    <div class="layer-controls__track">
+      <span class="layer-controls__label">Capas:</span>
+      <button class="layer-btn" data-layer="aula"      aria-pressed="false">🏫 Aulas</button>
+      <button class="layer-btn" data-layer="espacio"  aria-pressed="false">🏢 Espacios FIUBA</button>
+      <button class="layer-btn" data-layer="evacuacion" aria-pressed="false">🚨 Evacuación</button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
        CONTENEDOR DEL MAPA (SVG)
   ══════════════════════════════════════ -->
   <main class="map-container" id="map-container" role="main" aria-label="Mapa de la facultad">

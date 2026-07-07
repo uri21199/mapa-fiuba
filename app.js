@@ -56,10 +56,23 @@ const el = {
 // ═══════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════
+function initLayerDefaults() {
+  ['aula', 'espacio'].forEach(layer => {
+    const btn = document.querySelector(`.layer-btn[data-layer="${layer}"]`);
+    if (!btn) return;
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
+    el.svgWrapper.classList.add(`layer-${layer}`);
+  });
+  el.svgWrapper.classList.add('layer-active');
+}
+
 function init() {
   buildFloorNav();
   setupSearch();
   setupFilters();
+  setupLayerToggles();
+  initLayerDefaults();
   setupZoom();
   setupDetail();
   setupCapture();
@@ -140,6 +153,7 @@ async function loadFloor(key, { silent = false } = {}) {
     el.svgWrapper.appendChild(svg);
 
     setupRoomClickHandlers(svg);
+    setupLayerTags(svg, key);
     setupPanZoom(svg);
 
   } catch (err) {
@@ -363,6 +377,34 @@ async function applyFilter(key) {
   } else {
     showToast('No encontrado en ningún piso');
   }
+}
+
+// ═══════════════════════════════════════════════════
+// CAPAS DEL MAPA
+// ═══════════════════════════════════════════════════
+
+// Inyecta data-tipo en cada elemento del SVG usando data.js
+function setupLayerTags(svg, floorKey) {
+  ESPACIOS.filter(e => e.piso === floorKey).forEach(esp => {
+    const node = svg.querySelector(`#${CSS.escape(esp.svgId)}`);
+    if (node) node.dataset.tipo = esp.tipo;
+  });
+}
+
+// Toggle chips de capa: activa/desactiva visibilidad por tipo
+function setupLayerToggles() {
+  document.querySelectorAll('.layer-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const layer    = btn.dataset.layer;
+      const isActive = btn.classList.toggle('active');
+      btn.setAttribute('aria-pressed', isActive);
+      el.svgWrapper.classList.toggle(`layer-${layer}`, isActive);
+      // layer-active solo filtra zonas interactivas (no evacuacion)
+      const anyZona = [...document.querySelectorAll('.layer-btn.active')]
+        .some(b => b.dataset.layer !== 'evacuacion');
+      el.svgWrapper.classList.toggle('layer-active', anyZona);
+    });
+  });
 }
 
 // ═══════════════════════════════════════════════════

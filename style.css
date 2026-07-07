@@ -678,6 +678,119 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* ═══════════════════════════════════════════════════
+   CAPAS DEL MAPA
+═══════════════════════════════════════════════════ */
+.layer-controls {
+  flex-shrink: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 5px 0;
+}
+.layer-controls__track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.layer-controls__track::-webkit-scrollbar { display: none; }
+.layer-controls__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.layer-btn {
+  height: 28px;
+  padding: 0 11px;
+  border-radius: var(--r-lg);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  transition: all var(--t);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.layer-btn.active {
+  color: #fff;
+  border-color: transparent;
+}
+.layer-btn[data-layer="aula"].active      { background: #4A72D0; }
+.layer-btn[data-layer="espacio"].active   { background: #1E9E5A; }
+.layer-btn[data-layer="evacuacion"].active{ background: #2d5e3c; }
+
+/* ── Capas aplicadas al SVG wrapper ──
+   Real SVG (Illustrator): fill white tapa el PNG por debajo
+   Esquemático: opacity 0 oculta el <g> entero (forma + etiqueta) */
+
+/* SVG real — cuando hay capa activa, tapar con blanco los que no coinciden */
+.svg-wrapper.layer-active [id$="nteractivas"] [data-tipo] {
+  fill: white !important;
+  stroke: transparent !important;
+  pointer-events: none;
+}
+.svg-wrapper.layer-active.layer-aula [id$="nteractivas"] [data-tipo="aula"] {
+  fill: rgba(74, 114, 208, 0.30) !important;
+  stroke: #4A72D0 !important;
+  stroke-width: 1.5 !important;
+  pointer-events: auto;
+}
+.svg-wrapper.layer-active.layer-espacio [id$="nteractivas"] [data-tipo="espacio"] {
+  fill: rgba(30, 158, 90, 0.30) !important;
+  stroke: #1E9E5A !important;
+  stroke-width: 1.5 !important;
+  pointer-events: auto;
+}
+
+/* SVG esquemático — oculta el grupo entero (rect + texto) */
+.svg-wrapper.layer-active .espacio {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t);
+}
+.svg-wrapper.layer-active.layer-aula .espacio.tipo-aula,
+.svg-wrapper.layer-active.layer-espacio .espacio.tipo-espacio {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Color para esquemático cuando la capa está activa */
+.svg-wrapper.layer-aula .tipo-aula rect {
+  fill: rgba(74, 114, 208, 0.30) !important;
+  stroke: #4A72D0 !important;
+  stroke-width: 1.5 !important;
+}
+.svg-wrapper.layer-espacio .tipo-espacio rect {
+  fill: rgba(30, 158, 90, 0.30) !important;
+  stroke: #1E9E5A !important;
+  stroke-width: 1.5 !important;
+}
+
+/* ── Capa Evacuación ──
+   Oculta por defecto; visible solo cuando el toggle está activo */
+#Evacuacion {
+  display: none;
+}
+.svg-wrapper.layer-evacuacion #Evacuacion {
+  display: block;
+}
+
+/* .resaltado siempre gana sobre la capa */
+[id$="nteractivas"] path.resaltado,
+[id$="nteractivas"] rect.resaltado,
+[id$="nteractivas"] polygon.resaltado {
+  fill: rgba(255, 51, 85, 0.50) !important;
+  stroke: #CC0022 !important;
+}
+
+/* ═══════════════════════════════════════════════════
    SVG REAL (Illustrator) — Zonas_interactivas overlay
    Por defecto: transparente. Con .resaltado: visible.
 ═══════════════════════════════════════════════════ */
