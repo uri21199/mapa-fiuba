@@ -51,13 +51,14 @@ const el = {
   zoomIn:        $('zoom-in'),
   zoomOut:       $('zoom-out'),
   zoomReset:     $('zoom-reset'),
+  mesaFab:       $('mesa-fab'),
 };
 
 // ═══════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════
 function initLayerDefaults() {
-  ['aula', 'espacio'].forEach(layer => {
+  ['aula', 'espacio', 'laboratorio'].forEach(layer => {
     const btn = document.querySelector(`.layer-btn[data-layer="${layer}"]`);
     if (!btn) return;
     btn.classList.add('active');
@@ -67,12 +68,21 @@ function initLayerDefaults() {
   el.svgWrapper.classList.add('layer-active');
 }
 
+function setupMesaFab() {
+  el.mesaFab?.addEventListener('click', () => {
+    const mesa = ESPACIOS.find(e => e.svgId === 'mesa-proyecto-ing');
+    if (!mesa) return;
+    if (mesa.piso !== state.currentFloor) loadFloor(mesa.piso);
+    setTimeout(() => showDetail(mesa), mesa.piso !== state.currentFloor ? 600 : 0);
+  });
+}
+
 function init() {
   buildFloorNav();
   setupSearch();
-  setupFilters();
   setupLayerToggles();
   initLayerDefaults();
+  setupMesaFab();
   setupZoom();
   setupDetail();
   setupCapture();
@@ -385,9 +395,21 @@ async function applyFilter(key) {
 
 // Inyecta data-tipo en cada elemento del SVG usando data.js
 function setupLayerTags(svg, floorKey) {
+  // Inyectar desde data.js
   ESPACIOS.filter(e => e.piso === floorKey).forEach(esp => {
     const node = svg.querySelector(`#${CSS.escape(esp.svgId)}`);
     if (node) node.dataset.tipo = esp.tipo;
+  });
+  // Fallback: derivar tipo desde prefijo del ID para elementos sin entry en data.js
+  const zona = svg.querySelector('[id$="nteractivas"]');
+  if (!zona) return;
+  zona.querySelectorAll('[id]').forEach(node => {
+    if (node.dataset.tipo) return;
+    const id = node.id;
+    if      (id.startsWith('aula_'))        node.dataset.tipo = 'aula';
+    else if (id.startsWith('laboratorio_')) node.dataset.tipo = 'laboratorio';
+    else if (id.startsWith('espacio_'))     node.dataset.tipo = 'espacio';
+    else if (id.startsWith('banio_'))       node.dataset.tipo = 'bano';
   });
 }
 

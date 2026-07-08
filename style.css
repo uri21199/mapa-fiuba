@@ -2,16 +2,16 @@
    VARIABLES
 ═══════════════════════════════════════════════════ */
 :root {
-  --rojo:       #C41E3A;
-  --rojo-dark:  #9E1630;
-  --rojo-light: #E8294D;
+  --rojo:       #2d5269;
+  --rojo-dark:  #102e44;
+  --rojo-light: #436f86;
 
-  --highlight:        #FF3355;
-  --highlight-glow:   rgba(255,51,85,.45);
+  --highlight:        #5e91ab;
+  --highlight-glow:   rgba(94,145,171,.45);
   --multi-highlight:  #F59E0B;
   --multi-glow:       rgba(245,158,11,.45);
-  --especial-color:   #FFD700;
-  --especial-glow:    rgba(255,215,0,.6);
+  --especial-color:   #e8e12b;
+  --especial-glow:    rgba(232,225,43,.6);
 
   --bg:      #F0EFED;
   --surface: #FFFFFF;
@@ -244,56 +244,31 @@ button { font-family: inherit; cursor: pointer; }
 /* ═══════════════════════════════════════════════════
    QUICK FILTERS
 ═══════════════════════════════════════════════════ */
-.quick-filters {
-  flex-shrink: 0;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 7px 0;
-  z-index: 80;
-}
-
-.quick-filters__track {
-  display: flex;
-  overflow-x: auto;
-  scrollbar-width: none;
-  gap: 8px;
-  padding: 0 12px;
-}
-.quick-filters__track::-webkit-scrollbar { display: none; }
-
-.filter-btn {
-  flex-shrink: 0;
-  height: 34px;
-  padding: 0 14px;
+/* ── Botón flotante Mesa de Proyecto ── */
+.mesa-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 16px;
+  z-index: 200;
+  height: 44px;
+  padding: 0 16px;
   border-radius: var(--r-lg);
-  border: 2px solid var(--border);
-  background: var(--surface);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text);
-  transition: all var(--t);
-  white-space: nowrap;
+  border: none;
+  background: #e8e12b;
+  color: #102e44;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  transition: transform var(--t), box-shadow var(--t);
+  cursor: pointer;
+  white-space: nowrap;
 }
-.filter-btn:active,
-.filter-btn.active {
-  border-color: var(--rojo);
-  background: rgba(196,30,58,.08);
-  color: var(--rojo);
-}
-
-.filter-btn--special {
-  border-color: #F59E0B;
-  background: #FFFBEB;
-  color: #92400E;
-}
-.filter-btn--special.active,
-.filter-btn--special:active {
-  background: #FEF3C7;
-  border-color: #D97706;
-  color: #78350F;
+.mesa-fab:active {
+  transform: scale(.96);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ═══════════════════════════════════════════════════
@@ -722,9 +697,11 @@ button { font-family: inherit; cursor: pointer; }
   color: #fff;
   border-color: transparent;
 }
-.layer-btn[data-layer="aula"].active      { background: #4A72D0; }
-.layer-btn[data-layer="espacio"].active   { background: #1E9E5A; }
-.layer-btn[data-layer="evacuacion"].active{ background: #2d5e3c; }
+.layer-btn[data-layer="aula"].active        { background: #4A72D0; }
+.layer-btn[data-layer="espacio"].active     { background: #1E9E5A; }
+.layer-btn[data-layer="laboratorio"].active { background: #7C3AED; }
+.layer-btn[data-layer="bano"].active        { background: #0891B2; }
+.layer-btn[data-layer="evacuacion"].active  { background: #2d5e3c; }
 
 /* ── Capas aplicadas al SVG wrapper ──
    Real SVG (Illustrator): fill white tapa el PNG por debajo
@@ -748,6 +725,18 @@ button { font-family: inherit; cursor: pointer; }
   stroke-width: 1.5 !important;
   pointer-events: auto;
 }
+.svg-wrapper.layer-active.layer-laboratorio [id$="nteractivas"] [data-tipo="laboratorio"] {
+  fill: rgba(124, 58, 237, 0.30) !important;
+  stroke: #7C3AED !important;
+  stroke-width: 1.5 !important;
+  pointer-events: auto;
+}
+.svg-wrapper.layer-active.layer-bano [id$="nteractivas"] [data-tipo="bano"] {
+  fill: rgba(8, 145, 178, 0.30) !important;
+  stroke: #0891B2 !important;
+  stroke-width: 1.5 !important;
+  pointer-events: auto;
+}
 
 /* SVG esquemático — oculta el grupo entero (rect + texto) */
 .svg-wrapper.layer-active .espacio {
@@ -756,22 +745,18 @@ button { font-family: inherit; cursor: pointer; }
   transition: opacity var(--t);
 }
 .svg-wrapper.layer-active.layer-aula .espacio.tipo-aula,
-.svg-wrapper.layer-active.layer-espacio .espacio.tipo-espacio {
+.svg-wrapper.layer-active.layer-espacio .espacio.tipo-espacio,
+.svg-wrapper.layer-active.layer-laboratorio .espacio.tipo-laboratorio,
+.svg-wrapper.layer-active.layer-bano .espacio.tipo-bano {
   opacity: 1;
   pointer-events: auto;
 }
 
 /* Color para esquemático cuando la capa está activa */
-.svg-wrapper.layer-aula .tipo-aula rect {
-  fill: rgba(74, 114, 208, 0.30) !important;
-  stroke: #4A72D0 !important;
-  stroke-width: 1.5 !important;
-}
-.svg-wrapper.layer-espacio .tipo-espacio rect {
-  fill: rgba(30, 158, 90, 0.30) !important;
-  stroke: #1E9E5A !important;
-  stroke-width: 1.5 !important;
-}
+.svg-wrapper.layer-aula .tipo-aula rect        { fill: rgba(74,114,208,.30) !important; stroke: #4A72D0 !important; stroke-width: 1.5 !important; }
+.svg-wrapper.layer-espacio .tipo-espacio rect  { fill: rgba(30,158,90,.30) !important;  stroke: #1E9E5A !important; stroke-width: 1.5 !important; }
+.svg-wrapper.layer-laboratorio .tipo-laboratorio rect { fill: rgba(124,58,237,.30) !important; stroke: #7C3AED !important; stroke-width: 1.5 !important; }
+.svg-wrapper.layer-bano .tipo-bano rect        { fill: rgba(8,145,178,.30) !important;  stroke: #0891B2 !important; stroke-width: 1.5 !important; }
 
 /* ── Capa Evacuación ──
    Oculta por defecto; visible solo cuando el toggle está activo */

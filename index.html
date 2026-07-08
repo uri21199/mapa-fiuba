@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#C41E3A">
+  <meta name="theme-color" content="#2d5269">
   <title>Mapa FIUBA — Paseo Colón</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -54,27 +54,16 @@
   </nav>
 
   <!-- ══════════════════════════════════════
-       FILTROS RÁPIDOS
-  ══════════════════════════════════════ -->
-  <section class="quick-filters" id="quick-filters" aria-label="Filtros rápidos de supervivencia">
-    <div class="quick-filters__track">
-      <button class="filter-btn"           data-filter="banos"         >🚻 Baños</button>
-      <button class="filter-btn"           data-filter="comedor"       >🍽️ Comedor</button>
-      <button class="filter-btn"           data-filter="biblioteca"    >📚 Biblioteca</button>
-      <button class="filter-btn"           data-filter="tramites"      >📋 Trámites</button>
-      <button class="filter-btn filter-btn--special" data-filter="mesa-proyecto">⚙️ Mesa de Proyecto</button>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
        CAPAS DEL MAPA (toggle)
   ══════════════════════════════════════ -->
   <section class="layer-controls" id="layer-controls" aria-label="Capas visibles del mapa">
     <div class="layer-controls__track">
       <span class="layer-controls__label">Capas:</span>
-      <button class="layer-btn" data-layer="aula"      aria-pressed="false">🏫 Aulas</button>
-      <button class="layer-btn" data-layer="espacio"  aria-pressed="false">🏢 Espacios FIUBA</button>
-      <button class="layer-btn" data-layer="evacuacion" aria-pressed="false">🚨 Evacuación</button>
+      <button class="layer-btn" data-layer="aula"        aria-pressed="false">🏫 Aulas</button>
+      <button class="layer-btn" data-layer="espacio"     aria-pressed="false">🏢 Espacios FIUBA</button>
+      <button class="layer-btn" data-layer="laboratorio" aria-pressed="false">🔬 Laboratorio</button>
+      <button class="layer-btn" data-layer="bano"        aria-pressed="false">🚻 Baños</button>
+      <button class="layer-btn" data-layer="evacuacion"  aria-pressed="false">🚨 Evacuación</button>
     </div>
   </section>
 
@@ -146,6 +135,9 @@
       </p>
     </div>
   </footer>
+
+  <!-- Botón flotante Mesa de Proyecto -->
+  <button class="mesa-fab" id="mesa-fab" aria-label="Ir a Mesa de Proyecto de Ingeniería">⚙️ Mesa PI</button>
 
   <!-- Supabase CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
