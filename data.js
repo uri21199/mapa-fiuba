@@ -49,7 +49,6 @@ const ESPACIOS = [
   { svgId: "espacio_SalonPolideportivo",      nombre: "Salón Polideportivo",           tipo: "espacio", piso: "pb", sector: "Norte-Centro",palabrasClave: ["polideportivo","salon","deporte","deportivo","gimnasio"] },
   { svgId: "banio_damas",                     nombre: "Baño Damas — Planta Baja",      tipo: "bano",    piso: "pb", sector: "Centro-Oeste",palabrasClave: ["baño","damas","mujeres","sanitario","planta baja","pb"] },
   { svgId: "banio_caballeros",                nombre: "Baño Caballeros — Planta Baja", tipo: "bano",    piso: "pb", sector: "Centro-Este", palabrasClave: ["baño","hombres","caballeros","sanitario","planta baja","pb"] },
-  { svgId: "mesa-proyecto-ing",               nombre: "Mesa de Proyecto de Ingeniería",tipo: "especial",piso: "pb", sector: "Centro",      palabrasClave: ["mesa de proyecto","proyecto ingenieria","mesa proyecto","pi","proyecto final","tp final"] },
 
   // ─────────────────────────────────────────
   // PISO 1

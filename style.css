@@ -790,6 +790,21 @@ button { font-family: inherit; cursor: pointer; }
   cursor: pointer;
 }
 
+/* Mesa de Proyecto — siempre visible como estrella amarilla */
+[id$="nteractivas"] [data-tipo="especial"]:not(.resaltado):not(.resaltado-multi) {
+  fill: var(--especial-color) !important;
+  stroke: #E07B00 !important;
+  stroke-width: 1.5 !important;
+  pointer-events: auto !important;
+  animation: pulso-estrella 2s ease-in-out infinite;
+}
+.svg-wrapper.layer-active [id$="nteractivas"] [data-tipo="especial"]:not(.resaltado):not(.resaltado-multi) {
+  fill: var(--especial-color) !important;
+  stroke: #E07B00 !important;
+  stroke-width: 1.5 !important;
+  pointer-events: auto !important;
+}
+
 [id$="nteractivas"] path:hover,
 [id$="nteractivas"] rect:hover,
 [id$="nteractivas"] polygon:hover {
