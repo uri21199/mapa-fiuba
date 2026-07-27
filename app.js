@@ -1,16 +1,9 @@
 // app.js — Mapa Interactivo FIUBA
 
 // ═══════════════════════════════════════════════════
-// SUPABASE — reemplazá estos valores con los tuyos
+// GOOGLE SHEETS — Web App URL (Apps Script)
 // ═══════════════════════════════════════════════════
-const SUPABASE_URL  = 'https://TU_PROYECTO.supabase.co';
-const SUPABASE_ANON = 'TU_ANON_KEY';
-let sb = null;
-try {
-  sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
-} catch (e) {
-  console.warn('Supabase no configurado — emails no se guardarán.');
-}
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbx19oaSRG6wqzUyPvU48Qb6GgC3ZR2FT7PJPg284SQRaYSr-XbgIdYgYfAj92rFEm9w/exec';
 
 // ═══════════════════════════════════════════════════
 // ESTADO
@@ -506,19 +499,18 @@ function setupCapture() {
     if (!telefono) return;
 
     const btn = el.captureForm.querySelector('.capture-submit');
-    btn.disabled   = true;
+    btn.disabled    = true;
     btn.textContent = '…';
 
     try {
-      if (sb) {
-        const { error } = await sb.from('waitlist').insert([{
-          telefono,
-          fuente: 'mapa-fiuba',
-          created_at: new Date().toISOString(),
-        }]);
-        if (error) throw error;
-      }
-      el.captureForm.hidden  = true;
+      // no-cors: Apps Script no devuelve headers CORS legibles, pero el POST llega igual
+      await fetch(SHEETS_URL, {
+        method: 'POST',
+        mode:   'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ telefono, fuente: 'mapa-fiuba' }),
+      });
+      el.captureForm.hidden    = true;
       el.captureSuccess.hidden = false;
       showToast('🎉 ¡Anotado! Te avisamos cuando lancemos.');
       setTimeout(() => {
@@ -527,7 +519,7 @@ function setupCapture() {
       }, 3500);
     } catch (err) {
       console.error(err);
-      btn.disabled   = false;
+      btn.disabled    = false;
       btn.textContent = 'Sumarme';
       showToast('Ups, hubo un error. Intentá de nuevo.');
     }
