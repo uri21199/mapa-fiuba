@@ -271,6 +271,9 @@ button { font-family: inherit; cursor: pointer; }
   transform: translateX(-50%) scale(.96);
   box-shadow: var(--shadow-sm);
 }
+.mesa-fab.fab-hidden {
+  display: none;
+}
 
 /* ═══════════════════════════════════════════════════
    MAP CONTAINER

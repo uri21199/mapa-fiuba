@@ -511,11 +511,13 @@ function showDetail(esp) {
   el.detailMeta.textContent = `${PISOS[esp.piso]?.nombre ?? esp.piso} · ${esp.sector}`;
   el.detailPanel.classList.add('visible');
   el.detailPanel.setAttribute('aria-hidden', 'false');
+  el.mesaFab?.classList.add('fab-hidden');
 }
 
 function hideDetail() {
   el.detailPanel?.classList.remove('visible');
   el.detailPanel?.setAttribute('aria-hidden', 'true');
+  el.mesaFab?.classList.remove('fab-hidden');
 }
 
 // ═══════════════════════════════════════════════════
