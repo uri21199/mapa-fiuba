@@ -17,7 +17,6 @@ try {
 // ═══════════════════════════════════════════════════
 const state = {
   currentFloor: null,
-  activeFilter: null,
   highlighted: [],     // [{ id, cls }]
   vb: { x:0, y:0, w:0, h:0 },
   vbOrig: null,
@@ -88,7 +87,7 @@ function init() {
   setupDetail();
   setupCapture();
   loadFloor(Object.keys(PISOS)[1]); // arranca en Planta Baja
-  setTimeout(() => el.banner?.classList.add('visible'), 4000);
+  setTimeout(() => maybeShowBanner(), 15000); // fallback si no hubo interacción
 }
 
 // ═══════════════════════════════════════════════════
@@ -104,8 +103,6 @@ function buildFloorNav() {
     btn.addEventListener('click', () => {
       clearSearch();
       clearHighlights();
-      state.activeFilter = null;
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       loadFloor(key);
     });
     el.floorNav.appendChild(btn);
@@ -286,10 +283,6 @@ async function selectResult(esp) {
   hideDropdown();
   el.searchInput.blur();
 
-  // Limpiar filtro activo
-  state.activeFilter = null;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-
   if (state.currentFloor !== esp.piso) {
     await loadFloor(esp.piso);
     await wait(120);
@@ -298,6 +291,7 @@ async function selectResult(esp) {
   clearHighlights();
   const type = esp.tipo === 'especial' ? 'especial' : 'single';
   highlight(esp.svgId, type);
+  zoomedBySearch = true;
   scrollToEl(esp.svgId);
   showDetail(esp);
 }
@@ -330,66 +324,6 @@ function escHtml(s) {
 
 function escRegex(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-// ═══════════════════════════════════════════════════
-// FILTROS RÁPIDOS
-// ═══════════════════════════════════════════════════
-function setupFilters() {
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const key = btn.dataset.filter;
-
-      if (state.activeFilter === key) {
-        state.activeFilter = null;
-        btn.classList.remove('active');
-        clearHighlights();
-        hideDetail();
-        return;
-      }
-
-      state.activeFilter = key;
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      clearSearch();
-      applyFilter(key);
-    });
-  });
-}
-
-async function applyFilter(key) {
-  const cfg = FILTROS_RAPIDOS[key];
-  if (!cfg) return;
-
-  const matchTipo = e =>
-    cfg.tipo  ? e.tipo === cfg.tipo  :
-    cfg.tipos ? cfg.tipos.includes(e.tipo) : false;
-
-  let enPiso = ESPACIOS.filter(e => e.piso === state.currentFloor && matchTipo(e));
-
-  if (!enPiso.length) {
-    const todos = ESPACIOS.filter(matchTipo);
-    if (todos.length) {
-      const target = todos[0].piso;
-      await loadFloor(target);
-      await wait(120);
-      enPiso = todos.filter(e => e.piso === target);
-    }
-  }
-
-  clearHighlights();
-  const cls = key === 'mesa-proyecto' ? 'especial' : 'multi';
-  enPiso.forEach(e => highlight(e.svgId, cls));
-
-  if (enPiso.length) {
-    showToast(`${cfg.label} — ${enPiso.length} ubicación${enPiso.length > 1 ? 'es' : ''}`);
-    if (enPiso.length === 1) {
-      scrollToEl(enPiso[0].svgId);
-      showDetail(enPiso[0]);
-    }
-  } else {
-    showToast('No encontrado en ningún piso');
-  }
 }
 
 // ═══════════════════════════════════════════════════
@@ -516,6 +450,7 @@ function showDetail(esp) {
   el.detailPanel.classList.add('visible');
   el.detailPanel.setAttribute('aria-hidden', 'false');
   el.mesaFab?.classList.add('fab-hidden');
+  setTimeout(maybeShowBanner, 3000); // muestra banner 3s después de la primera interacción real
 }
 
 function hideDetail() {
@@ -523,6 +458,11 @@ function hideDetail() {
   el.detailPanel?.setAttribute('aria-hidden', 'true');
   el.mesaFab?.classList.remove('fab-hidden');
   clearHighlights();
+  if (zoomedBySearch) {
+    zoomedBySearch = false;
+    const svg = getSVG();
+    if (svg) resetZoom(svg);
+  }
 }
 
 // ═══════════════════════════════════════════════════
@@ -540,6 +480,14 @@ function showToast(msg) {
 // ═══════════════════════════════════════════════════
 // CAPTURA DE EMAIL (Supabase)
 // ═══════════════════════════════════════════════════
+let bannerShown   = false;
+let zoomedBySearch = false;
+function maybeShowBanner() {
+  if (bannerShown) return;
+  bannerShown = true;
+  el.banner?.classList.add('visible');
+}
+
 function setupCapture() {
   el.bannerClose?.addEventListener('click', () => el.banner.classList.remove('visible'));
   el.captureForm?.addEventListener('submit', async e => {
@@ -589,7 +537,6 @@ function setupPanZoom(svg) {
   // ─── Touch ───
   svg.addEventListener('touchstart', e => {
     e.preventDefault();
-    hideDetail();
     if (e.touches.length === 1) {
       isPanning = true;
       lastPos   = ptFromTouch(e.touches[0]);
@@ -605,6 +552,7 @@ function setupPanZoom(svg) {
     if (e.touches.length === 1 && isPanning && lastPos) {
       const cur = ptFromTouch(e.touches[0]);
       pan(svg, lastPos, cur);
+      hideDetail(); // cierra panel solo si el usuario realmente arrastra
       lastPos = cur;
     } else if (e.touches.length === 2 && lastPinch) {
       const dist = pinchDist(e.touches[0], e.touches[1]);
