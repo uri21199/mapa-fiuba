@@ -274,7 +274,6 @@ function clearSearch() {
   el.searchClear.hidden = true;
   hideDropdown();
   clearHighlights();
-  el.searchInput.focus();
 }
 
 async function selectResult(esp) {
@@ -571,9 +570,11 @@ function setupCapture() {
 // PAN & ZOOM (touch + mouse + rueda)
 // ═══════════════════════════════════════════════════
 function setupPanZoom(svg) {
-  let isPanning = false;
-  let lastPos   = null;
-  let lastPinch = null;
+  let isPanning   = false;
+  let lastPos     = null;
+  let lastPinch   = null;
+  let wasPinching = false;
+  let lastTap     = 0;
 
   // ─── Touch ───
   svg.addEventListener('touchstart', e => {
@@ -583,8 +584,9 @@ function setupPanZoom(svg) {
       isPanning = true;
       lastPos   = ptFromTouch(e.touches[0]);
     } else if (e.touches.length === 2) {
-      isPanning = false;
-      lastPinch = pinchDist(e.touches[0], e.touches[1]);
+      isPanning   = false;
+      wasPinching = true;
+      lastPinch   = pinchDist(e.touches[0], e.touches[1]);
     }
   }, { passive: false });
 
@@ -604,7 +606,17 @@ function setupPanZoom(svg) {
 
   svg.addEventListener('touchend', e => {
     if (e.touches.length < 2) lastPinch = null;
-    if (e.touches.length === 0) isPanning = false;
+    if (e.touches.length === 0) {
+      isPanning = false;
+      if (wasPinching) {
+        wasPinching = false;
+        lastTap = 0; // evita falso doble-tap al levantar dedos del pinch
+        return;
+      }
+      const now = Date.now();
+      if (now - lastTap < 280 && e.changedTouches.length === 1) resetZoom(svg);
+      lastTap = now;
+    }
   });
 
   // ─── Mouse ───
@@ -632,13 +644,6 @@ function setupPanZoom(svg) {
     zoomAt(svg, e.clientX, e.clientY, scale);
   }, { passive: false });
 
-  // ─── Double-tap reset ───
-  let lastTap = 0;
-  svg.addEventListener('touchend', e => {
-    const now = Date.now();
-    if (now - lastTap < 280 && e.changedTouches.length === 1) resetZoom(svg);
-    lastTap = now;
-  });
 }
 
 function pan(svg, from, to) {
