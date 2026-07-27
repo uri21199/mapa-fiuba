@@ -449,20 +449,26 @@ function showDetail(esp) {
   el.detailMeta.textContent = `${PISOS[esp.piso]?.nombre ?? esp.piso} · ${esp.sector}`;
   el.detailPanel.classList.add('visible');
   el.detailPanel.setAttribute('aria-hidden', 'false');
-  el.mesaFab?.classList.add('fab-hidden');
+  updateFabVisibility();
   setTimeout(maybeShowBanner, 3000); // muestra banner 3s después de la primera interacción real
 }
 
 function hideDetail() {
   el.detailPanel?.classList.remove('visible');
   el.detailPanel?.setAttribute('aria-hidden', 'true');
-  el.mesaFab?.classList.remove('fab-hidden');
   clearHighlights();
+  updateFabVisibility();
   if (zoomedBySearch) {
     zoomedBySearch = false;
     const svg = getSVG();
     if (svg) resetZoom(svg);
   }
+}
+
+function updateFabVisibility() {
+  const detailOpen = el.detailPanel?.classList.contains('visible');
+  const bannerOpen = el.banner?.classList.contains('visible');
+  el.mesaFab?.classList.toggle('fab-hidden', !!(detailOpen || bannerOpen));
 }
 
 // ═══════════════════════════════════════════════════
@@ -486,14 +492,18 @@ function maybeShowBanner() {
   if (bannerShown) return;
   bannerShown = true;
   el.banner?.classList.add('visible');
+  updateFabVisibility();
 }
 
 function setupCapture() {
-  el.bannerClose?.addEventListener('click', () => el.banner.classList.remove('visible'));
+  el.bannerClose?.addEventListener('click', () => {
+    el.banner.classList.remove('visible');
+    updateFabVisibility();
+  });
   el.captureForm?.addEventListener('submit', async e => {
     e.preventDefault();
-    const email = el.captureEmail.value.trim();
-    if (!email) return;
+    const telefono = el.captureEmail.value.trim();
+    if (!telefono) return;
 
     const btn = el.captureForm.querySelector('.capture-submit');
     btn.disabled   = true;
@@ -502,7 +512,7 @@ function setupCapture() {
     try {
       if (sb) {
         const { error } = await sb.from('waitlist').insert([{
-          email,
+          telefono,
           fuente: 'mapa-fiuba',
           created_at: new Date().toISOString(),
         }]);
@@ -511,7 +521,10 @@ function setupCapture() {
       el.captureForm.hidden  = true;
       el.captureSuccess.hidden = false;
       showToast('🎉 ¡Anotado! Te avisamos cuando lancemos.');
-      setTimeout(() => el.banner.classList.remove('visible'), 3500);
+      setTimeout(() => {
+        el.banner.classList.remove('visible');
+        updateFabVisibility();
+      }, 3500);
     } catch (err) {
       console.error(err);
       btn.disabled   = false;
