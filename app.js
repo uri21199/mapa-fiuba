@@ -72,8 +72,9 @@ function setupMesaFab() {
   el.mesaFab?.addEventListener('click', () => {
     const mesa = ESPACIOS.find(e => e.svgId === 'mesa-proyecto-ing');
     if (!mesa) return;
-    if (mesa.piso !== state.currentFloor) loadFloor(mesa.piso);
-    setTimeout(() => showDetail(mesa), mesa.piso !== state.currentFloor ? 600 : 0);
+    const needsFloorChange = mesa.piso !== state.currentFloor;
+    if (needsFloorChange) loadFloor(mesa.piso);
+    setTimeout(() => showDetail(mesa), needsFloorChange ? 600 : 0);
   });
 }
 
@@ -125,6 +126,7 @@ function setActiveTab(key) {
 // ═══════════════════════════════════════════════════
 async function loadFloor(key, { silent = false } = {}) {
   if (state.currentFloor === key) return;
+  const prevFloor = state.currentFloor;
   state.currentFloor = key;
   setActiveTab(key);
   clearHighlights();
@@ -167,6 +169,8 @@ async function loadFloor(key, { silent = false } = {}) {
     setupPanZoom(svg);
 
   } catch (err) {
+    state.currentFloor = prevFloor;
+    setActiveTab(prevFloor);
     el.svgWrapper.innerHTML = `
       <div class="map-placeholder">
         <div class="map-placeholder__icon">⚠️</div>
@@ -518,6 +522,7 @@ function hideDetail() {
   el.detailPanel?.classList.remove('visible');
   el.detailPanel?.setAttribute('aria-hidden', 'true');
   el.mesaFab?.classList.remove('fab-hidden');
+  clearHighlights();
 }
 
 // ═══════════════════════════════════════════════════
@@ -571,7 +576,10 @@ function setupCapture() {
 // ═══════════════════════════════════════════════════
 // PAN & ZOOM (touch + mouse + rueda)
 // ═══════════════════════════════════════════════════
+let panCleanup = null;
+
 function setupPanZoom(svg) {
+  if (panCleanup) panCleanup();
   let isPanning   = false;
   let lastPos     = null;
   let lastPinch   = null;
@@ -628,17 +636,23 @@ function setupPanZoom(svg) {
     lastPos   = { x: e.clientX, y: e.clientY };
     el.svgWrapper.classList.add('panning');
   });
-  window.addEventListener('mousemove', e => {
+  const onMouseMove = e => {
     if (!isPanning || !lastPos) return;
     const cur = { x: e.clientX, y: e.clientY };
     pan(svg, lastPos, cur);
     lastPos = cur;
-  });
-  window.addEventListener('mouseup', () => {
+  };
+  const onMouseUp = () => {
     isPanning = false;
     lastPos   = null;
     el.svgWrapper?.classList.remove('panning');
-  });
+  };
+  window.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('mouseup',   onMouseUp);
+  panCleanup = () => {
+    window.removeEventListener('mousemove', onMouseMove);
+    window.removeEventListener('mouseup',   onMouseUp);
+  };
 
   svg.addEventListener('wheel', e => {
     e.preventDefault();
