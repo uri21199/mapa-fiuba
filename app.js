@@ -1,9 +1,6 @@
 // app.js — Mapa Interactivo FIUBA
 
-// ═══════════════════════════════════════════════════
-// GOOGLE SHEETS — Web App URL (Apps Script)
-// ═══════════════════════════════════════════════════
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbx19oaSRG6wqzUyPvU48Qb6GgC3ZR2FT7PJPg284SQRaYSr-XbgIdYgYfAj92rFEm9w/exec';
+// app.js — Mapa Interactivo FIUBA
 
 // ═══════════════════════════════════════════════════
 // ESTADO
@@ -37,9 +34,6 @@ const el = {
   toast:         $('toast'),
   banner:        $('capture-banner'),
   bannerClose:   $('capture-close'),
-  captureForm:   $('capture-form'),
-  captureEmail:  $('capture-email'),
-  captureSuccess:$('capture-success'),
   zoomIn:        $('zoom-in'),
   zoomOut:       $('zoom-out'),
   zoomReset:     $('zoom-reset'),
@@ -492,37 +486,6 @@ function setupCapture() {
   el.bannerClose?.addEventListener('click', () => {
     el.banner.classList.remove('visible');
     updateFabVisibility();
-  });
-  el.captureForm?.addEventListener('submit', async e => {
-    e.preventDefault();
-    const telefono = el.captureEmail.value.trim();
-    if (!telefono) return;
-
-    const btn = el.captureForm.querySelector('.capture-submit');
-    btn.disabled    = true;
-    btn.textContent = '…';
-
-    try {
-      // no-cors: Apps Script no devuelve headers CORS legibles, pero el POST llega igual
-      await fetch(SHEETS_URL, {
-        method: 'POST',
-        mode:   'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ telefono, fuente: 'mapa-fiuba' }),
-      });
-      el.captureForm.hidden    = true;
-      el.captureSuccess.hidden = false;
-      showToast('🎉 ¡Anotado! Te avisamos cuando lancemos.');
-      setTimeout(() => {
-        el.banner.classList.remove('visible');
-        updateFabVisibility();
-      }, 3500);
-    } catch (err) {
-      console.error(err);
-      btn.disabled    = false;
-      btn.textContent = 'Sumarme';
-      showToast('Ups, hubo un error. Intentá de nuevo.');
-    }
   });
 }
 

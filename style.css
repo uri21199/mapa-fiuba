@@ -610,51 +610,22 @@ button { font-family: inherit; cursor: pointer; }
 }
 .capture-banner__text strong { color: #fff; }
 
-.capture-form {
-  display: flex;
-  gap: 8px;
-}
-
-.capture-input {
-  flex: 1;
+.capture-cta {
+  display: inline-block;
   height: 40px;
-  border: 1.5px solid rgba(255,255,255,.2);
-  border-radius: var(--r-sm);
-  background: rgba(255,255,255,.08);
-  color: #fff;
-  padding: 0 12px;
-  font-size: 14px;
-  font-family: inherit;
-  outline: none;
-  min-width: 0;
-  transition: border-color var(--t);
-}
-.capture-input::placeholder { color: rgba(255,255,255,.35); }
-.capture-input:focus { border-color: rgba(255,255,255,.5); }
-
-.capture-submit {
-  height: 40px;
-  padding: 0 18px;
+  line-height: 40px;
+  padding: 0 20px;
   background: var(--rojo);
   color: #fff;
-  border: none;
   border-radius: var(--r-sm);
   font-size: 13px;
   font-weight: 700;
   font-family: inherit;
-  white-space: nowrap;
+  text-decoration: none;
   transition: background var(--t);
-  flex-shrink: 0;
+  white-space: nowrap;
 }
-.capture-submit:hover { background: var(--rojo-dark); }
-.capture-submit:disabled { opacity: .6; }
-
-.capture-success {
-  font-size: 13px;
-  color: #6EE7B7;
-  text-align: center;
-  margin-top: 8px;
-}
+.capture-cta:hover { background: var(--rojo-dark); }
 
 /* ═══════════════════════════════════════════════════
    CAPAS DEL MAPA
